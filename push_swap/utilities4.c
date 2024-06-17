@@ -6,7 +6,7 @@
 /*   By: evmouka <evmouka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:31:22 by evmouka           #+#    #+#             */
-/*   Updated: 2024/06/13 15:35:16 by evmouka          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:39:20 by evmouka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	stack_destroy(t_stack *stack)
 	free(stack);
 }
 
-void	error_exit(void)
+void	error_exit(int **arr)
 {
+	free(*arr);
 	write (2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
@@ -32,18 +33,18 @@ void	validate_input(int argc, char **argv, int **arr)
 
 	*arr = (int *)malloc((argc - 1) * sizeof(int));
 	if (!(*arr))
-		error_exit();
+		exit(EXIT_FAILURE);
 	i = 0;
 	while (i < argc - 1)
 	{
 		val = ft_atoi(argv[i + 1]);
 		if (val < INT_MIN || val > INT_MAX)
-			error_exit();
+			error_exit(arr);
 		j = 0;
 		while (j < i)
 		{
 			if ((*arr)[j] == val)
-				error_exit();
+				error_exit(arr);
 			j++;
 		}
 		(*arr)[i] = val;

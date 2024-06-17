@@ -6,7 +6,7 @@
 /*   By: evmouka <evmouka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:23:12 by evmouka           #+#    #+#             */
-/*   Updated: 2024/06/13 15:04:56 by evmouka          ###   ########.fr       */
+/*   Updated: 2024/06/14 15:36:18 by evmouka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	stack_destroy(t_stack *stack);
 void	validate_input(int argc, char **argv, int **arr);
 void	create_array(int argc, char **argv, int **arr);
 void	sort_stack(t_stack *stack_a, t_stack *stack_b);
-void	error_exit(void);
+void	error_exit(int **arr);
 void	push(t_stack *stack, int item);
 void	move_min_to_top(t_stack *stack);
 void	sort_small(t_stack *stack_a, t_stack *stack_b);
