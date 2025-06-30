@@ -1,0 +1,1 @@
+cc -Wall -Wextra -Werror main.c echo.c pwd.c cd.c env.c export.c show_var.c unset.c redirect.c execute_command.c exit.c cat.c -o minishell  -L./libft -lft -I./libft -lreadline
